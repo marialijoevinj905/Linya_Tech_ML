@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Interactive Story Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Interactive Story Generator</h1>
+      <form method="post" action="/generate">
+        <label for="prompt">Enter a prompt to start your story:</label><br><br>
+        <textarea id="prompt" name="prompt" rows="4" cols="50">{{ prompt if prompt else '' }}</textarea><br><br>
+        <input type="submit" value="Generate Story">
+      </form>
+      {% if story %}
+      <h2>Generated Story:</h2>
+      <p>{{ story }}</p>
+      {% endif %}
+    </div>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+  </body>
+</html>
